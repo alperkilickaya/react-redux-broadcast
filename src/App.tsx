@@ -55,31 +55,41 @@ function App() {
       <div
         style={{
           display: "flex",
-          justifyContent: "space-around",
+          justifyContent: "space-between",
           gap: "10px",
         }}
       >
-        <div className="card">
-          <button onClick={handleLogin}>Login</button>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "10px",
+          }}
+        >
+          <div className="card">
+            <button onClick={handleLogin}>Login</button>
+          </div>
+          <div className="card">
+            <button onClick={handleGetUser}>Get User</button>
+          </div>
         </div>
-        <div className="card">
-          <button onClick={handleLogout}>Logout</button>
-        </div>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-around",
-          gap: "10px",
-        }}
-      >
-        <div className="card">
-          <button onClick={handleGetUser}>Get User</button>
-        </div>
-        <div className="card">
-          <button onClick={handleInvalidateAccessToken}>
-            Invalidate Access Token
-          </button>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "10px",
+          }}
+        >
+          <div className="card">
+            <button onClick={handleLogout}>Logout</button>
+          </div>
+          <div className="card">
+            <button onClick={handleInvalidateAccessToken}>
+              Invalidate Access Token
+            </button>
+          </div>
         </div>
       </div>
     </>
