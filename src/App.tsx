@@ -20,25 +20,25 @@ function App() {
       refreshToken: refreshToken,
       name: firstName,
     };
-    console.log("userrrr", user);
     store.dispatch(setUser(user));
+    // broadcast user for other tabs
     broadcastUser(user);
   };
 
   const handleLogout = () => {
     store.dispatch(clearUser());
+    // broadcast clear for other tabs
     broadcastClear();
   };
 
   const handleInvalidateAccessToken = () => {
+    // invalidate access token for demo purposes
     store.dispatch(invalidateAccessToken());
-    //console.log redux user state
-    console.log(store.getState().user);
   };
 
   const handleGetUser = async () => {
     const res = await api.get("/auth/me");
-    console.log(res.data);
+    console.log("User Info:", res.data);
   };
 
   return (

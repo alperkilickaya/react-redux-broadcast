@@ -45,6 +45,7 @@ api.interceptors.response.use(
         };
 
         store.dispatch(setUser(user));
+        // broadcast user for other tabs
         broadcastUser(user);
 
         // Retry original request with new token
@@ -52,6 +53,7 @@ api.interceptors.response.use(
         return axios(originalRequest);
       } catch (refreshError) {
         store.dispatch(clearUser());
+        // broadcast clear for other tabs
         broadcastClear();
         return Promise.reject(refreshError);
       }
