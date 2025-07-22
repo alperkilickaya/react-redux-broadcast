@@ -14,19 +14,21 @@ function App() {
     });
     const { accessToken, refreshToken, firstName } = res.data;
 
-    // refresh token sahte olarak atıyoruz
+    // set user to redux store
     const user = {
       accessToken: accessToken,
       refreshToken: refreshToken,
       name: firstName,
     };
     store.dispatch(setUser(user));
+
     // broadcast user for other tabs
     broadcastUser(user);
   };
 
   const handleLogout = () => {
     store.dispatch(clearUser());
+
     // broadcast clear for other tabs
     broadcastClear();
   };
